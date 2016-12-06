@@ -1,3 +1,11 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Robert Lohaus
+ * Date: 12/6/2016
+ * Time: 3:04 AM
+ */
+?>
 <!DOCTYPE html>
 <html>
 
@@ -10,7 +18,7 @@
         <?php
         isset($title) ? print(htmlspecialchars($title)) : print(SITE_NAME);
         ?>
-    </title>
+</title>
 </head>
 
 <body>

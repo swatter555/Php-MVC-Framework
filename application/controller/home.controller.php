@@ -6,12 +6,12 @@
  * Time: 3:08 AM
  */
 
-class Home
+class HomeController
 {
     /**
      * The default landing page for website.
      */
-    public function homeAction()
+    public function home()
     {
         Functions::getInstance()->render(VIEW_PATH . "home.php",["title"=>SITE_NAME]);
     }

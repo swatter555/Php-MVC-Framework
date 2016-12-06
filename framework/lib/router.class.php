@@ -25,8 +25,8 @@ class Router
         // Call the appropriate controller.
         if (UrlParser::getInstance()->getController() == DEFAULT_CONTROLLER)
         {
-            $homeController = new Home();
-            $homeController->homeAction();
+            $homeController = new HomeController();
+            $homeController->home();
         }
         else
         {
@@ -48,6 +48,7 @@ class Router
 
         // Create the proper class name.
         $className = ucfirst($controllerName);
+        $className .= "Controller";
 
         // Create the controller.
         $this->controller =  new $className();

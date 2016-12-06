@@ -1,14 +1,12 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Robert Lohaus
- * Date: 12/1/2016
- * Time: 3:18 AM
- *
- * Controller that handles displaying error page.
+ * User: coder
+ * Date: 12/6/2016
+ * Time: 3:00 AM
  */
 
-class Errorhandler
+class ErrorController
 {
     private $title = "Error Page";
     private $message = "Sorry, an error has occurred.";
@@ -19,10 +17,9 @@ class Errorhandler
      *
      * @param $errorCode
      */
-    public function display_error($errorCode)
+    public function error_page($errorCode)
     {
-        switch ($errorCode)
-        {
+        switch ($errorCode) {
             case 0:
                 $this->title = "Error Page";
                 $this->message = "Sorry, an error has occurred.";
@@ -47,7 +44,7 @@ class Errorhandler
     private function renderPage($title, $message)
     {
         // Display error page.
-        require VIEW_PATH . "display_error.php";
+        require VIEW_PATH . "error.php";
 
         // Stop all scripts.
         exit();

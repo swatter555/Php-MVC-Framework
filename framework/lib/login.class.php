@@ -6,17 +6,17 @@
  * Time: 3:03 AM
  */
 
-class Login
+class LoginHelpers
 {
     /**
-     * @var Login The reference to *Singleton* instance of this class
+     * @var LoginHelpers The reference to *Singleton* instance of this class
      */
     private static $instance;
 
     /**
-     * Returns the *Login* instance of this class.
+     * Returns the *LoginHelpers* instance of this class.
      *
-     * @return Login The *Login* instance.
+     * @return LoginHelpers The *Login* instance.
      */
     public static function getInstance()
     {

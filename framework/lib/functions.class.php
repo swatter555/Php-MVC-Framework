@@ -138,7 +138,7 @@ class Functions
      */
     public function renderErrorPage($errorCode)
     {
-        $controller = new Errorhandler();
-        $controller->display_error($errorCode);
+        $controller = new ErrorController();
+        $controller->error_page($errorCode);
     }
 }

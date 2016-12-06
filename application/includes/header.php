@@ -3,10 +3,10 @@
 ob_start();
 
 // Start session.
-Login::getInstance()->secureSessionStart();
+LoginHelpers::getInstance()->secureSessionStart();
 
 // Check if user is logged in.
-Login::getInstance()->loginCheck() ? $logged = true : $logged = false;
+LoginHelpers::getInstance()->loginCheck() ? $logged = true : $logged = false;
 ?>
 
 <!DOCTYPE html>

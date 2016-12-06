@@ -117,13 +117,14 @@ class UrlParser
     public function parseAction()
     {
         // Get path array.
-        $pathArray = $this->getPathParts();
+        $queries = $this->getQueryParts();
 
         // Get class name from controller.
         $className = ucfirst($this->controller);
+        $className .= "Controller";
 
         // Check each path part for a valid action.
-        foreach ($pathArray as $value)
+        foreach ($queries as $value)
         {
             if (method_exists($className, $value))
             {

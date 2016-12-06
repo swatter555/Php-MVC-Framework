@@ -44,7 +44,7 @@ class Framework
         include_once MODEL_PATH . "attempts.model.php";
 
         // Essential controllers.
-        include_once CONTROLLER_PATH . "errorhandler.controller.php";
+        include_once CONTROLLER_PATH . "error.controller.php";
         include_once CONTROLLER_PATH . "home.controller.php";
 
         /**

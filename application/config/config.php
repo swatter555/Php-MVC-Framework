@@ -9,7 +9,7 @@
 // General settings
 define("SITE_NAME", "Your Site Name");
 define("DEFAULT_CONTROLLER", "home");
-define("DEFAULT_ACTION", "homeAction");
+define("DEFAULT_ACTION", "home");
 
 // Database settings
 define("HOST", "localhost");
