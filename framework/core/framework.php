@@ -58,7 +58,6 @@ class Framework
 
         // Library files.
         include_once LIB_PATH . "functions.class.php";
-        include_once LIB_PATH . "login.class.php";
         include_once LIB_PATH . "url_parser.class.php";
         include_once LIB_PATH . "router.class.php";
     }

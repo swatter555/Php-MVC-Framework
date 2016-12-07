@@ -10,8 +10,4 @@
 <br>
 You are in login controller.
 <br>
-<form action="?action=test" method="post">
-<input type="submit" value="Test">
-</form>
-<br>
 <?php UrlParser::getInstance()->renderUrlInfo(); ?>
