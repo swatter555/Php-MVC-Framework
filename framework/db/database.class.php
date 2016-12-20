@@ -18,7 +18,8 @@ class MySqlPDO
      */
     public static function getInstance()
     {
-        if (null === static::$instance) {
+        if (null === static::$instance)
+        {
             // Set connection settings.
             $host = HOST;
             $user = USER;
@@ -36,11 +37,13 @@ class MySqlPDO
                 PDO::ATTR_EMULATE_PREPARES => false,
             ];
 
-            try {
+            try
+            {
                 static::$instance = new PDO($dsn, $user, $password, $opt);
-            } catch (PDOException $e) {
-                Functions::getInstance()->writeToLog(ERROR_LOG_PATH, $e->getMessage());
-                Functions::getInstance()->renderErrorPage(GENERIC_ERROR);
+            }
+            catch (PDOException $e)
+            {
+                trigger_error('A system error occurred. We apologize for any inconvenience.');
             }
         }
 
@@ -84,16 +87,18 @@ class MySqlPDO
     {
         // Prepare and execute the PDO SQL Query.
         $stmt = null;
-        try {
+        try
+        {
             // Prepare the statement.
             $stmt = self::getInstance()->prepare($query);
 
             // Execute the statement.
             $stmt->execute($values);
 
-        } catch (PDOException $e) {
-            Functions::getInstance()->writeToLog(ERROR_LOG_PATH, $e->getMessage());
-            Functions::getInstance()->renderErrorPage(GENERIC_ERROR);
+        }
+        catch (PDOException $e)
+        {
+            trigger_error('A system error occurred. We apologize for any inconvenience.');
         }
 
         return $stmt;
@@ -120,13 +125,17 @@ class MySqlPDO
         $query = "SELECT ";
 
         // Add the columns to the statement.
-        if (is_array($columnName)) {
+        if (is_array($columnName))
+        {
             // Add each column if columnName is array.
-            foreach ($columnName as $column) {
+            foreach ($columnName as $column)
+            {
                 $query .= $column . ",";
             }
             $query = trim($query, ",");
-        } else {
+        }
+        else
+        {
             // Or just add the column.
             $query .= $columnName;
         }
@@ -135,12 +144,14 @@ class MySqlPDO
         $query .= " FROM " . $from;
 
         // Add the where clause.
-        if ($where != null) {
+        if ($where != null)
+        {
             $query .= " WHERE " . $where . " " . $operator . " ?";
         }
 
         // Add LIMIT clause.
-        if ($limit != null) {
+        if ($limit != null)
+        {
             $query .= " LIMIT " . $limit;
         }
 
@@ -149,7 +160,8 @@ class MySqlPDO
 
         // Prepare and execute PDO SQL query.
         $stmt = null;
-        try {
+        try
+        {
             // Prepare PDO statement.
             $stmt = self::getInstance()->prepare($query);
 
@@ -158,9 +170,10 @@ class MySqlPDO
 
             // Write statement to file.
             Functions::getInstance()->writeToLog(SQL_LOG_PATH, $stmt->queryString);
-        } catch (PDOException $e) {
-            Functions::getInstance()->writeToLog(ERROR_LOG_PATH, $e->getMessage());
-            Functions::getInstance()->renderErrorPage(GENERIC_ERROR);
+        }
+        catch (PDOException $e)
+        {
+            trigger_error('A system error occurred. We apologize for any inconvenience.');
         }
 
         return $stmt;
@@ -179,7 +192,8 @@ class MySqlPDO
         $sql = "INSERT " . "INTO " . $table . " VALUES (NULL,";
 
         // Add the parts of the record.
-        foreach ($row as $value) {
+        foreach ($row as $value)
+        {
             $sql .= "?" . ",";
         }
 
@@ -191,7 +205,8 @@ class MySqlPDO
 
         // Prepare and execute SQL query.
         $stmt = null;
-        try {
+        try
+        {
             // Prepare statement.
             $stmt = self::getInstance()->prepare($sql);
 
@@ -200,9 +215,10 @@ class MySqlPDO
 
             // Write statement to file.
             Functions::getInstance()->writeToLog(SQL_LOG_PATH, $stmt->queryString);
-        } catch (PDOException $e) {
-            Functions::getInstance()->writeToLog(ERROR_LOG_PATH, $e->getMessage());
-            Functions::getInstance()->renderErrorPage(GENERIC_ERROR);
+        }
+        catch (PDOException $e)
+        {
+            trigger_error('A system error occurred. We apologize for any inconvenience.');
         }
 
         return $stmt;
@@ -223,7 +239,8 @@ class MySqlPDO
 
         // Prepare and execute SQL query.
         $stmt = null;
-        try {
+        try
+        {
             // Prepare statement.
             $stmt = self::getInstance()->prepare($sql);
 
@@ -232,9 +249,10 @@ class MySqlPDO
 
             // Write statement to file.
             Functions::getInstance()->writeToLog(SQL_LOG_PATH, $stmt->queryString);
-        } catch (PDOException $e) {
-            Functions::getInstance()->writeToLog(ERROR_LOG_PATH, $e->getMessage());
-            Functions::getInstance()->renderErrorPage(GENERIC_ERROR);
+        }
+        catch (PDOException $e)
+        {
+            trigger_error('A system error occurred. We apologize for any inconvenience.');
         }
 
         return $stmt;

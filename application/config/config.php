@@ -7,9 +7,12 @@
  */
 
 // General settings
+if (!defined('LIVE')) define('LIVE', false);
 define("SITE_NAME", "Your Site Name");
 define("DEFAULT_CONTROLLER", "home");
 define("DEFAULT_ACTION", "home");
+define("CONTACT_EMAIL", "coderbob0101@hotmail.com");
+define("CONTACT_EMAIL_FROM", "admin@MyWebsite.com");
 
 // Database settings
 define("HOST", "localhost");
@@ -24,10 +27,5 @@ define("MEMBERS_TABLE", "members");
 define("ATTEMPTS_TABLE", "login_attempts");
 
 // Log file directories
-define("LOG_ERRORS", true);
+define("LOGS_ACTIVE", true);
 define("SQL_LOG_PATH", LOG_PATH . "sql_log.txt");
-define("ERROR_LOG_PATH", LOG_PATH . "error_log.txt");
-
-// Error action codes
-define("GENERIC_ERROR", 0);
-define("BAD_REQUEST", 1);

@@ -13,13 +13,15 @@ class Framework
     {
         // Define root directory.
         define("DS", DIRECTORY_SEPARATOR);
+        define("BD", ".."); // Back directory
         define("ROOT", dirname( __FILE__ ) . DS);
 
         // Define file paths.
-        define("APP", ROOT . ".." . DS . ".." . DS . "application" . DS);
-        define("PUB", ROOT . ".." . DS . ".." . DS . "public" . DS);
-        define("FRAMEWORK", ROOT . ".." . DS . ".." . DS . "framework" . DS);
-        define("LOG_PATH", ROOT . ".." . DS . ".." . DS . "logs" . DS);
+        define("APP", ROOT . BD . DS . BD . DS . "application" . DS);
+        define("PUB", ROOT . BD . DS . BD . DS . "public" . DS);
+        define("FRAMEWORK", ROOT . BD . DS . BD . DS . "framework" . DS);
+        define("LOG_PATH", ROOT . BD . DS . BD . DS . "logs" . DS);
+        define("IMG_PATH", PUB . "img" . DS);
 
         define("CONFIG_PATH", APP . "config" . DS);
         define("CONTROLLER_PATH", APP . "controller" . DS);
@@ -32,7 +34,12 @@ class Framework
         define("DB_PATH", FRAMEWORK . "db" . DS);
 
         /**
-         * Application files.san
+         * Include files.
+         */
+        include_once INCLUDE_PATH . "error_handler.php";
+
+        /**
+         * Application files.
          */
 
         // Config files.
@@ -44,7 +51,6 @@ class Framework
         include_once MODEL_PATH . "attempts.model.php";
 
         // Essential controllers.
-        include_once CONTROLLER_PATH . "error.controller.php";
         include_once CONTROLLER_PATH . "home.controller.php";
 
         /**

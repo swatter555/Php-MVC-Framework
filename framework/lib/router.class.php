@@ -72,7 +72,7 @@ class Router
         // is an error.
         if ($action == DEFAULT_ACTION)
         {
-            Functions::getInstance()->renderErrorPage(BAD_REQUEST);
+            trigger_error("The requested page doesn't exist.");
         }
 
         // Call the action.

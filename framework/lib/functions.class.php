@@ -72,7 +72,7 @@ class Functions
         }
         else
         {
-            self::renderErrorPage(BAD_REQUEST);
+            trigger_error("The requested page doesn't exist.");
         }
     }
 
@@ -84,7 +84,7 @@ class Functions
      */
     public function writeToLog($logFile, $message)
     {
-        if (LOG_ERRORS)
+        if (LOGS_ACTIVE)
         {
             $message .= "  [". date("Y-m-d H:i:s") ."]" . PHP_EOL;
             file_put_contents($logFile, $message, FILE_APPEND);
@@ -128,17 +128,5 @@ class Functions
 
         // Exit immediately since we're redirecting anyway.
         exit;
-    }
-
-    /**
-     * Display an error page describing the problem.
-     *
-     * @param $title
-     * @param $message
-     */
-    public function renderErrorPage($errorCode)
-    {
-        $controller = new ErrorController();
-        $controller->error_page($errorCode);
     }
 }
